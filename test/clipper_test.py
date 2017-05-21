@@ -1,5 +1,5 @@
 #pylint: disable=invalid-name, too-few-public-methods, too-many-public-methods
-from __future__ import print_function, absolute_import
+
 
 import os
 import resource
@@ -17,7 +17,7 @@ from test.util_test import KatanaBaseTestCase, MockPrimerPair, MockRead, \
 
 
 try:
-    from StringIO import StringIO
+    from io import StringIO
 except ImportError:
     from io import StringIO
 
@@ -321,7 +321,7 @@ class ClipperTestCase(KatanaBaseTestCase):
         clipper._initialize_primer_pairs(StringIO(input_manifest))
         actual_primers = clipper.PrimerPair._all_primers
         self.assertEquals(4, len(actual_primers))
-        targets = set([primer.target_id for primer in actual_primers.values()])
+        targets = set([primer.target_id for primer in list(actual_primers.values())])
         self.assertEquals(set(["IDH1_1", "NRAS_3"]), targets)
 
 

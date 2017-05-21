@@ -1,6 +1,6 @@
 """Classes common to several modules"""
 #TODO: elaborate module doc
-from __future__ import print_function, absolute_import, division
+
 
 from collections import defaultdict
 
@@ -8,7 +8,7 @@ import natsort
 
 
 try:
-    from itertools import izip
+    
 except ImportError:  #python3.x
     izip = zip
 
@@ -53,7 +53,7 @@ class PrimerStats(object):
                   self._primer_stats[primer_pair, True],
                   self._primer_stats[primer_pair, False],
                   self._sense_percent(primer_pair)]
-        return dict(izip(PrimerStats.STAT_KEYS, values))
+        return dict(zip(PrimerStats.STAT_KEYS, values))
 
 
 #TODO: Extend log method to emit subset to screen and full set to file

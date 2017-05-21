@@ -1,5 +1,5 @@
 #pylint: disable=invalid-name, too-few-public-methods, too-many-public-methods
-from __future__ import print_function, absolute_import
+
 
 import sys
 import unittest
@@ -11,7 +11,7 @@ from katana.util import ReadTransformation
 from katana import readhandler
 
 try:
-    from StringIO import StringIO
+    from io import StringIO
 except ImportError:
     from io import StringIO
 

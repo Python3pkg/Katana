@@ -1,6 +1,6 @@
 """Basic CIGAR manipulation and querying. """
 
-from __future__ import print_function, absolute_import, division
+
 
 import itertools
 import re

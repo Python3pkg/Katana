@@ -1,6 +1,6 @@
 """Various classes that handle reads"""
 #TODO: elaborate module doc
-from __future__ import print_function, absolute_import, division
+
 
 from collections import defaultdict
 import os
@@ -58,7 +58,7 @@ class ExcludeNonMatchedReadHandler(_BaseReadHandler):
             raise self._STOP_ITERATION_EXCEPTION
 
     def end(self):
-        for (filters, count) in self._all_exclusions.items():
+        for (filters, count) in list(self._all_exclusions.items()):
             msg = "EXCLUDE|{} alignments were excluded because: {}"
             self._log_method(msg, count, ",".join(filters))
 
